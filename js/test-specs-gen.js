@@ -291,4 +291,61 @@ let tests = [{
             }
         }
     },
+    {
+        id: "test-gen-13",
+        description: "Applying crossline with cosmetics",
+        test: {
+            dataSource: {
+                chart: {
+                    caption: "Sales of Liquor",
+                    subCaption: "Last week",
+                    xAxisName: "Day",
+                    yAxisName: "Sales (In USD)",
+                    numberPrefix: "$",
+                    theme: "fusion",
+                    drawCrossLine: 1,
+                    crossLineColor: "#ff2755",
+                    crossLineAlpha: 100,
+                    crossLineAnimation: 1,
+                    crossLineAnimationDuration: .2,
+                    plotColorinTooltip: 1,
+                    drawCrossLineOnTop: 1
+                },
+                data
+            }
+        }
+    },
+    {
+        id: "test-gen-14",
+        description: "Applying crossline with cosmetics",
+        test: {
+            dataSource: {
+                chart: {
+                    caption: "Sales of Liquor",
+                    subCaption: "Last week",
+                    xAxisName: "Day",
+                    yAxisName: "Sales (In USD)",
+                    numberPrefix: "$",
+                    theme: "fusion",
+                    showPlotBorder: 1,
+                    plotBorderColor: "#000000",
+                    plotBorderThickness: 5,
+                    plotBorderAlpha: 80,
+                    plotBorderDashed: 1,
+                    plotBorderDashLen: 4,
+                    plotBorderDashGap: 2,
+                    plotFillAngle: 30,
+                    plotFillRatio: "60,40",
+                    plotFillAlpha: 80,
+                    plotGradientColor: "#00ff00,#00ffff",
+                    showShadow: 1,
+                    plotFillColor: "#00ff00,#00ffff",
+                    usePlotGradientColor: 1,
+                    drawFullAreaBorder: 1,
+                    // inheritPlotBorderColor: 0 //need to ask
+                },
+                data
+            }
+        }
+    }
 ]
