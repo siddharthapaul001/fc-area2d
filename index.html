@@ -20,8 +20,8 @@
     <div class="search-container">
         <input type="text" name="attr-name" id="attr-name" placeholder="Enter attribute" />
         <input type="checkbox" name="match-regex" id="match-regex" value="regexp" />
-        <button type="button" name="search" value="search"
-            onclick="javascript:search(document.getElementById('attr-name').value, document.getElementById('match-regex').checked)">Search</button>
+        <button type="button" name="prev" value="prev" onclick="selectSearchResult(-1)">&lt;</button>
+        <button type="button" name="prev" value="prev" onclick="selectSearchResult(1)">&gt;</button>
     </div>
     <div id="container" class="container">
 
@@ -33,7 +33,25 @@
             height: 360
         };
 
-        var searchResults = [];
+        var searchResults = [], selectedResult;
+
+        function selectSearchResult(direction) {
+            if (searchResults.length) {
+                selectedResult += direction;
+                if (selectedResult >= searchResults.length) {
+                    selectedResult = 0;
+                } else if (selectedResult < 0) {
+                    selectedResult = searchResults.length - 1;
+                }
+                requestAnimationFrame(() => {
+                    document.getElementById(searchResults[selectedResult].id).removeAttribute("style");
+                    requestAnimationFrame(() => {
+                        document.getElementById(searchResults[selectedResult].id).setAttribute("style", "animation: newAnim 900ms ease 3");
+                    })
+                });
+                window.location.href = '#' + searchResults[selectedResult].id;
+            }
+        }
 
         function search(searchTxt, doRegexMatch) {
             let params = searchTxt.split('='),
@@ -94,13 +112,8 @@
 
             });
             if (searchResults.length) {
-                requestAnimationFrame(() => {
-                    document.getElementById(searchResults[0].id).removeAttribute("style");
-                    requestAnimationFrame(() => {
-                        document.getElementById(searchResults[0].id).setAttribute("style", "animation: newAnim 900ms ease 3");
-                    })
-                });
-                window.location.href = '#' + searchResults[0].id;
+                selectedResult = 0;
+                selectSearchResult(0);
             }
         }
 
@@ -136,6 +149,12 @@
             fc = new FusionCharts(config);
             fc.render();
             fcs.push(fc);
+        });
+
+        document.getElementById("attr-name").addEventListener('keyup', function(evt){
+            if(evt.keyCode === 13){
+                search(document.getElementById('attr-name').value, document.getElementById('match-regex').checked);
+            }
         });
 
     </script>

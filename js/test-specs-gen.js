@@ -172,8 +172,6 @@ let tests = [{
                     yAxisName: "Amount",
                     numberPrefix: "$",
                     theme: "fusion",
-                    adjustDivLines: 0,
-                    numDivLines: 2,
                     setAdaptiveYMin: 1,
                     showPrintMenuItem: 1
                 },

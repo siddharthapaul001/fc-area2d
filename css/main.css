@@ -83,3 +83,34 @@ pre{
 pre.active{
     left: 0;
 }
+
+.search-container{
+    position: fixed;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    bottom: 10px;
+    right: 10px;
+    z-index: 100;
+    padding: 10px 20px;
+    opacity: 0.3;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: opacity 300ms ease;
+}
+
+.search-container:hover{
+    opacity: 1;
+}
+
+.search-container input{
+    border: 1px solid transparent;
+}
+
+.search-container button{
+    background: transparent;
+    border: 1px solid transparent;
+}
+
+.search-container input:focus, .search-container button:focus{
+    outline: none;
+}

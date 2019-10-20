@@ -175,4 +175,44 @@ const data = [{
             value: 10,
             anchorImageUrl: "//images.ctfassets.net/fevtq3bap7tj/3j9B2HnWjm5NiFgU91debv/ce94b69ac7eb90e6c8fe4eb351107001/yaminim.png"
         }
-    ];
+    ],
+    storageData = [{
+        "label": "08:00",
+        "value": "3572355443"
+      }, {
+        "label": "10:00",
+        "value": "3321445434"
+      }, {
+        "label": "12:00",
+        "value": "3012343453"
+      }, {
+        "label": "14:00",
+        "value": "2645546455"
+      }, {
+        "label": "16:00",
+        "value": "2425445435"
+      }, {
+        "label": "18:00",
+        "value": "1935657565"
+      }, {
+        "label": "20:00",
+        "value": "1545565666"
+      }, {
+        "label": "22:00",
+        "value": "1135654544"
+      }, {
+        "label": "00:00",
+        "value": "1006543455"
+      }, {
+        "label": "02:00",
+        "value": "957343445"
+      }, {
+        "label": "04:00",
+        "value": "886334444"
+      }, {
+        "label": "06:00",
+        "value": "800"
+      }, {
+        "label": "07:59",
+        "value": "695"
+      }];

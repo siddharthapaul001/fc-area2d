@@ -19,5 +19,37 @@ tests = [
                 data
             }
         }
+    },
+    {
+        test: {
+            dataSource: {
+                chart: {
+                    caption: "Backup Server - Free Storage Volume",
+                    subcaption: "Last 24 hours",
+                    xaxisname: "Time",
+                    yaxisname: "Free Storage Volume",
+                    yAxisMaxValue: 4096,
+                    rotatevalues: 1,
+                    showValues: 1,
+                    numdivlines: 4,
+                    formatNumberScale: 1,
+                    numberScaleValue: "1024,1024,1024",
+                    numberScaleUnit: " MB, GB, TB",
+                    defaultNumberScale: " KB",
+                    scaleRecursively: 0,
+                    theme: "fusion"
+                },
+                data: storageData,
+                trendlines: [{
+                    line: [{
+                        startvalue: "2802434345",
+                        color: "#ff0000",
+                        displayvalue: "Critical",
+                        dashed: "1",
+                        valueOnRight: "1"
+                    }]
+                }]
+            }
+        }
     }
 ]
