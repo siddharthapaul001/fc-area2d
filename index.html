@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fusioncharts Area2D</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="js/data.js"></script>
+    <script src="js/test-specs-gen.js"></script>
+    <script src="js/test-specs-cosmetics.js"></script>
+    <script src="js/test-specs-number.js"></script>
+    <script src="js/test-specs-trendlines.js"></script>
+    <script src="fusioncharts-suite-xt/js/fusioncharts.js"></script>
+    <script src="fusioncharts-suite-xt/js/themes/fusioncharts.theme.fusion.js"></script>
+</head>
+
+<body>
+    <div class="search-container">
+        <input type="text" name="attr-name" id="attr-name" placeholder="Enter attribute" />
+        <input type="checkbox" name="match-regex" id="match-regex" value="regexp" />
+        <button type="button" name="search" value="search"
+            onclick="javascript:search(document.getElementById('attr-name').value, document.getElementById('match-regex').checked)">Search</button>
+    </div>
+    <div id="container" class="container">
+
+    </div>
+    <script>
+        const container = document.getElementById('container'), fcs = [], common = {
+            type: 'area2d',
+            width: 480,
+            height: 360
+        };
+
+        var searchResults = [];
+
+        function search(searchTxt, doRegexMatch) {
+            let params = searchTxt.split('='),
+                keys = params[0].trim().split('.').map(k => k.toLowerCase()),
+                value = params[1];
+
+            searchResults = [];
+            if (value) {
+                value = value.trim();
+            }
+            tests.forEach((test, testIdx) => {
+                let attrs = test.test, attrKeys;
+                if (keys.length > 1) {
+                    for (let i = 0, l = keys.length; attrs && i < l; i++) {
+                        attrKeys = Object.keys(attrs);
+                        attrs = attrs[attrKeys[attrKeys.map(attrKey => attrKey.toLowerCase()).indexOf(keys[i])]];
+                    }
+                    if (typeof attrs !== 'undefined' && (typeof value === 'undefined' || attrs == value)) {
+                        searchResults.push({
+                            id: test.id,
+                            testIdx
+                        });
+                    }
+                } else if (keys.length) {
+                    let allKeys = Object.keys(attrs);
+                    if (attrs['dataSource']) {
+                        allKeys = allKeys.concat(Object.keys(attrs['dataSource']));
+                        if (attrs['dataSource']["chart"]) {
+                            allKeys = allKeys.concat(Object.keys(attrs['dataSource']['chart']));
+                        }
+                        if (attrs['dataSource']["data"]) {
+                            let dataKeys = [];
+                            attrs['dataSource']["data"].forEach(elem => {
+                                dataKeys = dataKeys.concat(Object.keys(elem).filter(e => !dataKeys.includes(e)));
+                            });
+                            allKeys = allKeys.concat(dataKeys);
+                        }
+                    }
+                    if (keys[0].length) {
+                        if (doRegexMatch) {
+                            if (allKeys.some(e => new RegExp(keys[0], "i").test(e))) {
+                                searchResults.push({
+                                    id: test.id,
+                                    testIdx
+                                });
+                            }
+                        } else {
+                            let idx = allKeys.map(e => e.toLowerCase()).indexOf(keys[0].toLowerCase());
+                            if (idx > -1) {
+                                searchResults.push({
+                                    id: test.id,
+                                    testIdx
+                                });
+                            }
+                        }
+                    }
+                }
+
+            });
+            if (searchResults.length) {
+                requestAnimationFrame(() => {
+                    document.getElementById(searchResults[0].id).removeAttribute("style");
+                    requestAnimationFrame(() => {
+                        document.getElementById(searchResults[0].id).setAttribute("style", "animation: newAnim 900ms ease 3");
+                    })
+                });
+                window.location.href = '#' + searchResults[0].id;
+            }
+        }
+
+        tests.forEach((test, idx) => {
+            let parent = document.createElement('div'),
+                sl1 = document.createElement('div'),
+                btn = document.createElement('button'),
+                chartContainer = document.createElement('div'),
+                info = document.createElement('div'),
+                codeContainer = document.createElement('pre'), fc,
+                config = {
+                    renderAt: 'chart-' + idx,
+                    ...common,
+                    ...test.test
+                };
+            chartContainer.id = 'chart-' + idx;
+            parent.id = test.id;
+            parent.className = 'card';
+            info.className = 'info';
+            sl1.className = 'sl';
+            codeContainer.innerHTML = JSON.stringify(config, undefined, 2);
+            sl1.appendChild(chartContainer);
+            sl1.appendChild(info);
+            btn.className = 'btn btn-small';
+            btn.innerHTML = '{JSON}';
+            btn.onclick = () => {
+                codeContainer.classList.toggle('active');
+            };
+            sl1.appendChild(btn);
+            parent.appendChild(sl1);
+            parent.appendChild(codeContainer);
+            container.appendChild(parent);
+            fc = new FusionCharts(config);
+            fc.render();
+            fcs.push(fc);
+        });
+
+    </script>
+</body>
+
+</html>
