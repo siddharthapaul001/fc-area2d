@@ -135,6 +135,7 @@
             info.className = 'info';
             sl1.className = 'sl';
             codeContainer.innerHTML = JSON.stringify(config, undefined, 2);
+            info.innerHTML = "<h3>"+test.id+"</h3><div class=\"test-description\">"+test.description+"</div>";
             sl1.appendChild(chartContainer);
             sl1.appendChild(info);
             btn.className = 'btn btn-small';

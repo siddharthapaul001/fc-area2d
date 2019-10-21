@@ -2,7 +2,7 @@ tests = [
     ...tests,
     {
         id: "test-cosmetics-1",
-        description: "Applying all Axis Name cosmetics",
+        description: "Applying all Axis Name cosmetics (If crossline hidden then tooltip also hidden)",
         test: {
             dataSource: {
                 chart: {
@@ -65,7 +65,9 @@ tests = [
                     valueBorderDashed: 1,
                     valueBorderDashLen: 4,
                     valueBorderDashGap: 2,
-                    textOutline: 1
+                    textOutline: 1,
+                    drawCrossLine: 0,
+                    // showTooltip: 1
                 },
                 data
             }
@@ -242,8 +244,6 @@ tests = [
                     subCaption: "Last week",
                     xAxisName: "Day",
                     yAxisName: "Sales (In USD)",
-                    showValues: 0,
-                    showTooltip: 1,
                     theme: "fusion",
                     toolTipBgColor: "#ff0000",
                     toolTipColor: "#000000",
@@ -253,8 +253,53 @@ tests = [
                     showToolTipShadow: 1,
                     tooltipbgalpha: 80,
                     tooltipborderradius: 20,
-                    tooltipborderthickness: 5,
+                    tooltipborderthickness: 2,
                     toolTipPadding: 10,
+                },
+                data
+            }
+        }
+    },
+    {
+        id: "test-cosmetics-8",
+        description: "Applying base font",
+        test: {
+            dataSource: {
+                chart: {
+                    caption: "Sales of Liquor",
+                    subCaption: "Last week",
+                    xAxisName: "Day",
+                    yAxisName: "Sales (In USD)",
+                    theme: "fusion",
+                    baseFont: "Arial",
+                    baseFontSize: 42,
+                    baseFontColor: "#00ffff",
+                    outCnvBaseFont: "Arial",
+                    outCnvBaseFontSize: 36,
+                    outCnvBaseFontColor: "#00ff00"
+                },
+                data
+            }
+        }
+    },
+    {
+        id: "test-cosmetics-9",
+        description: "Applying bg image",
+        test: {
+            dataSource: {
+                chart: {
+                    caption: "Sales of Liquor",
+                    subCaption: "Last week",
+                    xAxisName: "Day",
+                    yAxisName: "Sales (In USD)",
+                    theme: "fusion",
+                    showValues: 1,
+                    bgImage: "https://techcrunch.com/wp-content/uploads/2015/04/codecode.jpg?w=990&crop=1",
+                    bgImageAlpha: 10,
+                    bgImageDisplayMode: "Stretch",
+                    // bgImageVAlign: "bottom",
+                    // bgImageHAlign: "right",
+                    bgImageScale: 100
                 },
                 data
             }

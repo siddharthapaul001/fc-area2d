@@ -2,7 +2,7 @@ tests = [
     ...tests,
     {
         id: "test-num-1",
-        description: "Implementing my first area2d chart, checking all required and common chart attributes like caption, subcaption, height, width etc.",
+        description: "No number fomating.",
         test: {
             dataSource: {
                 chart: {
