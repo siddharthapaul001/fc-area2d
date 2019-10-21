@@ -68,7 +68,7 @@ const data = [{
             dashLen: 4,
             dashGap: 2,
             label: "lomba",
-            showLabelBorder: 1,
+            // showLabelBorder: 0,
             linePosition: 0.9,
             labelPosition: 1,
             labelHAlign: "left",
@@ -135,12 +135,12 @@ const data = [{
         },
         {
             label: 'Apr',
-            anchorImageUrl: ""
+            value: 5,
+            anchorImageUrl: "//images.ctfassets.net/fevtq3bap7tj/3XfSeI5zTLSpFMn1sN1NeB/7351e7c251f6aae6bc48c75a3b72ea12/vivek.png"
         },
         {
             label: 'May',
-            value: 10,
-            anchorImageUrl: "//images.ctfassets.net/fevtq3bap7tj/3XfSeI5zTLSpFMn1sN1NeB/7351e7c251f6aae6bc48c75a3b72ea12/vivek.png"
+            anchorImageUrl: ""
         },
         {
             label: 'Jun',

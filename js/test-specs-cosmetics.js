@@ -14,6 +14,7 @@ tests = [
                     showValues: 1,
                     theme: "fusion",
                     xAxisNameFont: "Arial",
+                    plottooltext: "$label:::$value",
                     xAxisNameFontColor: "#ff0000",
                     xAxisNameFontSize: 32,
                     xAxisNameFontBold: 1,
@@ -123,7 +124,7 @@ tests = [
         }
     },
     {
-        id: "test-cosmetics-3",
+        id: "test-cosmetics-4",
         description: "Applying border cosmetics on canvas and chart",
         test: {
             dataSource: {
@@ -151,6 +152,109 @@ tests = [
                     logoAlpha: 50,
                     logoScale: 80,
                     logoLink: "https://www.fusioncharts.com"
+                },
+                data
+            }
+        }
+    },
+    {
+        id: "test-cosmetics-5",
+        description: "Applying margin and padding",
+        test: {
+            dataSource: {
+                chart: {
+                    caption: "Sales of Liquor",
+                    subCaption: "Last week",
+                    xAxisName: "Day",
+                    yAxisName: "Sales (In USD)",
+                    numberPrefix: "$",
+                    showValues: 1,
+                    theme: "fusion",
+                    captionPadding: 10,
+                    xAxisNamePadding: 10,
+                    yAxisNamePadding: 10,
+                    yAxisValuesPadding: 10,
+                    labelPadding: 20,
+                    valuePadding: 20,
+                    chartLeftMargin: 20,
+                    chartRightMargin: 20,
+                    chartTopMargin: 20,
+                    chartBottomMargin: 20,
+                    canvasPadding: 5,
+                    canvasLeftPadding: 20,
+                    canvasRightPadding: 10,
+                    canvasTopPadding: 15,
+                    canvasLeftMargin: 10,
+                    canvasRightMargin: 200,
+                    canvasTopMargin: 30,
+                    canvasBottomMargin: 30,
+                    showCanvasBorder: 1,
+                    canvasBorderColor: "#000000",
+                    xAxisNameBorderColor: "#000000",
+                    yAxisNameBorderColor: "#000000",
+                    valueBorderColor: "#000000",
+                    labelBorderColor: "#000000",
+                    showBorder: 1,
+                    borderColor: "#ff0000"
+                },
+                data
+            }
+        }
+    },
+    {
+        id: "test-cosmetics-6",
+        description: "Applying hover effects",
+        test: {
+            dataSource: {
+                chart: {
+                    caption: "Sales of Liquor",
+                    subCaption: "Last week",
+                    xAxisName: "Day",
+                    yAxisName: "Sales (In USD)",
+                    showValues: 0,
+                    showTooltip: 0,
+                    theme: "fusion",
+                    anchorImageScale: 20,
+                    connectNullData: 1,
+                    showHoverEffect: 1,
+                    anchorHoverEffect: 1,
+                    anchorHoverAlpha: 20,
+                    anchorHoverRadius: 10,
+                    anchorBgHoverColor: "#000000",
+                    anchorBgHoverAlpha: 20,
+                    anchorBorderHoverColor: "#dddddd",
+                    anchorBorderHoverAlpha: 80,
+                    anchorBorderHoverThickness: 10
+                    //anchorHoverDip: Number[+]
+                    //anchorHoverAnimation: Boolean[+]
+                },
+                data: dobData
+            }
+        }
+    },
+    {
+        id: "test-cosmetics-7",
+        description: "Applying tooltip cosmetics",
+        test: {
+            dataSource: {
+                chart: {
+                    caption: "Sales of Liquor",
+                    subCaption: "Last week",
+                    xAxisName: "Day",
+                    yAxisName: "Sales (In USD)",
+                    showValues: 0,
+                    showTooltip: 1,
+                    theme: "fusion",
+                    toolTipBgColor: "#ff0000",
+                    toolTipColor: "#000000",
+                    toolTipBorderColor: "#000000",
+                    tooltipBorderAlpha: 80,
+                    toolTipSepChar: "?",
+                    showToolTipShadow: 1,
+                    tooltipbgalpha: 80,
+                    tooltipborderradius: 20,
+                    tooltipborderthickness: 5,
+                    toolTipPadding: 10,
                 },
                 data
             }

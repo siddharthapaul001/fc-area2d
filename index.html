@@ -19,7 +19,7 @@
 <body>
     <div class="search-container">
         <input type="text" name="attr-name" id="attr-name" placeholder="Enter attribute" />
-        <input type="checkbox" name="match-regex" id="match-regex" value="regexp" />
+        <input type="checkbox" name="match-regex" id="match-regex" value="regexp" checked />
         <button type="button" name="prev" value="prev" onclick="selectSearchResult(-1)">&lt;</button>
         <button type="button" name="prev" value="prev" onclick="selectSearchResult(1)">&gt;</button>
     </div>
@@ -151,9 +151,19 @@
             fcs.push(fc);
         });
 
-        document.getElementById("attr-name").addEventListener('keyup', function(evt){
-            if(evt.keyCode === 13){
+        document.getElementById("attr-name").addEventListener('keyup', function (evt) {
+            if (evt.keyCode === 13) {
                 search(document.getElementById('attr-name').value, document.getElementById('match-regex').checked);
+            }
+        });
+
+        document.addEventListener('keyup', function (evt) {
+            if (document.getElementById("attr-name") !== document.activeElement) {
+                if (evt.keyCode === 37) {
+                    selectSearchResult(-1);
+                } else if (evt.keyCode === 39) {
+                    selectSearchResult(1);
+                }
             }
         });
 

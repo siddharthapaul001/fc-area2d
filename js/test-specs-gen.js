@@ -13,7 +13,7 @@ let tests = [{
                     theme: "fusion",
                     rotateLabels: 1,
                     slantLabels: 1,
-                    valuePosition: 'ABOVE'
+                    valuePosition: 'ABOVE',
                 },
                 data
             }
@@ -150,6 +150,7 @@ let tests = [{
                     numDivLines: 2,
                     drawAnchors: 1,
                     // anchorStartAngle: 30,
+                    showVlineLabelBorder: 0,
                     anchorRadius: 5,
                     anchorBorderColor: "#ff2d57",
                     anchorBorderThickness: 5,
@@ -256,8 +257,13 @@ let tests = [{
                     anchorBorderThickness: 2,
                     anchorBorderColor: "#127fcb",
                     anchorSides: 3,
+                    showHoverEffect: 1,
+                    anchorHoverSides: 4,
+                    anchorBgHoverColor: "#000000",
+                    anchorBgHoverAlpha: 50,
+                    anchorHoverStartAngle: 40,
                     anchorBgColor: "#d3f7ff",
-                    drawFullAreaBorder: 1
+                    drawFullAreaBorder: 1,
                 },
                 data: lData
             }
@@ -265,6 +271,30 @@ let tests = [{
     },
     {
         id: "test-gen-12",
+        description: "Implementing triangular anchors using anchorSides and hover effects on anchor",
+        test: {
+            dataSource: {
+                chart: {
+                    caption: "Harry's SuperMart",
+                    subCaption: "Monthly revenue for last year",
+                    xAxisName: "Month",
+                    yAxisName: "Amount",
+                    numberPrefix: "$",
+                    theme: "fusion",
+                    anchorRadius: 6,
+                    anchorBorderThickness: 2,
+                    anchorBorderColor: "#127fcb",
+                    anchorSides: 3,
+                    showHoverEffect: 1,
+                    anchorHoverDip: 1,
+                    anchorHoverAnimation: 1
+                },
+                data: lData
+            }
+        }
+    },
+    {
+        id: "test-gen-13",
         description: "Implementing images inside anchors",
         test: {
             dataSource: {
@@ -292,7 +322,7 @@ let tests = [{
         }
     },
     {
-        id: "test-gen-13",
+        id: "test-gen-14",
         description: "Applying crossline with cosmetics",
         test: {
             dataSource: {
@@ -316,7 +346,7 @@ let tests = [{
         }
     },
     {
-        id: "test-gen-14",
+        id: "test-gen-15",
         description: "Applying crossline with cosmetics",
         test: {
             dataSource: {
