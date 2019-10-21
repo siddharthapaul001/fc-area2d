@@ -16,7 +16,8 @@ const data = [{
         },
         {
             "label": "Fri",
-            "value": "5529"
+            "value": "5529",
+            toolText: "Custom text"
         },
         {
             "label": "Sat",

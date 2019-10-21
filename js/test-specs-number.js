@@ -73,7 +73,7 @@ tests = [
                     defaultNumberScale: " KB",
                     scaleRecursively: 1,
                     maxScaleRecursion: 2,
-                    theme: "fusion"
+                    theme: "candy"
                 },
                 data: storageData.slice(3, 5),
                 trendlines: [{
