@@ -32,9 +32,10 @@ html, body{
     display: inline-block;
     position: relative;
     width: 480px;
-    padding: 10px;
+    padding: 15px;
     overflow: hidden;
     text-align: left;
+    border-radius: 9px;
 }
 
 .card.active{
@@ -68,7 +69,7 @@ html, body{
 
 pre{
     position: absolute;
-    left: 500px;
+    left: 510px;
     top: 0;
     display: block;
     width: 500px;
