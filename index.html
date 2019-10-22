@@ -8,12 +8,14 @@
     <title>Fusioncharts Area2D</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script src="js/data.js"></script>
+    <script src="js/star.js"></script>
     <script src="js/test-specs-gen.js"></script>
     <script src="js/test-specs-cosmetics.js"></script>
     <script src="js/test-specs-number.js"></script>
     <script src="js/test-specs-trendlines.js"></script>
     <script src="js/test-specs-annotations.js"></script>
     <script src="js/test-specs-drilldown.js"></script>
+    <script src="js/test-specs-realtime.js"></script>
     <script src="fusioncharts-suite-xt/js/fusioncharts.js"></script>
     <script src="fusioncharts-suite-xt/js/themes/fusioncharts.theme.fusion.js"></script>
     <script src="fusioncharts-suite-xt/js/themes/fusioncharts.theme.candy.js"></script>
@@ -37,6 +39,10 @@
         };
 
         var searchResults = [], selectedResult;
+
+        function customDrilldownTestFunction(params){
+            alert('Ho Ho Ho');
+        }
 
         function selectSearchResult(direction) {
             if (searchResults.length) {
@@ -152,6 +158,9 @@
             container.appendChild(parent);
             fc = new FusionCharts(config);
             fc.render();
+            if(typeof test['callback'] === 'function'){
+                test.callback(fc);
+            }
             fcs.push(fc);
         });
 

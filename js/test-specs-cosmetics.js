@@ -216,17 +216,18 @@ tests = [
                     showValues: 0,
                     showTooltip: 0,
                     theme: "fusion",
-                    anchorImageScale: 20,
-                    connectNullData: 1,
-                    showHoverEffect: 1,
-                    anchorHoverEffect: 1,
-                    anchorHoverAlpha: 20,
-                    anchorHoverRadius: 10,
+                    anchorImageScale: "20",
+                    connectNullData: "1",
+                    showHoverEffect: "1",
+                    anchorHoverEffect: "1",
+                    anchorHoverAlpha: "20",
+                    anchorHoverRadius: "10",
                     anchorBgHoverColor: "#000000",
-                    anchorBgHoverAlpha: 20,
+                    anchorBgHoverAlpha: "20",
                     anchorBorderHoverColor: "#dddddd",
-                    anchorBorderHoverAlpha: 80,
-                    anchorBorderHoverThickness: 10
+                    anchorBorderHoverAlpha: "80",
+                    anchorBorderHoverThickness: "10",
+                    drawAnchors: 1
                     //anchorHoverDip: Number[+]
                     //anchorHoverAnimation: Boolean[+]
                 },
