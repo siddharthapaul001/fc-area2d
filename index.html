@@ -121,49 +121,59 @@
                 }
 
             });
+
+            titleMap.forEach((chart, idx) =>{
+                if(new RegExp(keys[0], "i").test(chart.title) || new RegExp(keys[0], "i").test(chart.chartType)){
+                    searchResults.push({
+                        id: 'chart-type-' + idx + 'p',
+                        idx
+                    });
+                }
+            })
+
             if (searchResults.length) {
                 selectedResult = 0;
                 selectSearchResult(0);
             }
         }
 
-        // tests.forEach((test, idx) => {
-        //     let parent = document.createElement('div'),
-        //         sl1 = document.createElement('div'),
-        //         btn = document.createElement('button'),
-        //         chartContainer = document.createElement('div'),
-        //         info = document.createElement('div'),
-        //         codeContainer = document.createElement('pre'), fc,
-        //         config = {
-        //             renderAt: 'chart-' + idx,
-        //             ...common,
-        //             ...test.test
-        //         };
-        //     chartContainer.id = 'chart-' + idx;
-        //     parent.id = test.id;
-        //     parent.className = 'card';
-        //     info.className = 'info';
-        //     sl1.className = 'sl';
-        //     codeContainer.innerHTML = JSON.stringify(config, undefined, 2);
-        //     info.innerHTML = "<h3>"+test.id+"</h3><div class=\"test-description\">"+test.description+"</div>";
-        //     sl1.appendChild(chartContainer);
-        //     sl1.appendChild(info);
-        //     btn.className = 'btn btn-small';
-        //     btn.innerHTML = '{JSON}';
-        //     btn.onclick = () => {
-        //         codeContainer.classList.toggle('active');
-        //     };
-        //     sl1.appendChild(btn);
-        //     parent.appendChild(sl1);
-        //     parent.appendChild(codeContainer);
-        //     container.appendChild(parent);
-        //     fc = new FusionCharts(config);
-        //     fc.render();
-        //     if(typeof test['callback'] === 'function'){
-        //         test.callback(fc);
-        //     }
-        //     fcs.push(fc);
-        // });
+        tests.forEach((test, idx) => {
+            let parent = document.createElement('div'),
+                sl1 = document.createElement('div'),
+                btn = document.createElement('button'),
+                chartContainer = document.createElement('div'),
+                info = document.createElement('div'),
+                codeContainer = document.createElement('pre'), fc,
+                config = {
+                    renderAt: 'chart-' + idx,
+                    ...common,
+                    ...test.test
+                };
+            chartContainer.id = 'chart-' + idx;
+            parent.id = test.id;
+            parent.className = 'card';
+            info.className = 'info';
+            sl1.className = 'sl';
+            codeContainer.innerHTML = JSON.stringify(config, undefined, 2);
+            info.innerHTML = "<h3>"+test.id+"</h3><div class=\"test-description\">"+test.description+"</div>";
+            sl1.appendChild(chartContainer);
+            sl1.appendChild(info);
+            btn.className = 'btn btn-small';
+            btn.innerHTML = '{JSON}';
+            btn.onclick = () => {
+                codeContainer.classList.toggle('active');
+            };
+            sl1.appendChild(btn);
+            parent.appendChild(sl1);
+            parent.appendChild(codeContainer);
+            container.appendChild(parent);
+            fc = new FusionCharts(config);
+            fc.render();
+            if(typeof test['callback'] === 'function'){
+                test.callback(fc);
+            }
+            fcs.push(fc);
+        });
 
         charts.forEach((test, idx) => {
             let parent = document.createElement('div'),
