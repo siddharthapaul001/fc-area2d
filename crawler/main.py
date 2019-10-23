@@ -1,7 +1,6 @@
 from requests import Session
 from bs4 import BeautifulSoup
 import json
-import re
 
 s = Session()
 bsObj = BeautifulSoup(s.get('https://www.fusioncharts.com/dev/chart-attributes/errorline').text, 'lxml')
